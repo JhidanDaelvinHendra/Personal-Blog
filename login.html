@@ -32,13 +32,20 @@
             font-weight: bold;
         }
         .form-group input {
+            box-sizing: border-box;
             width: 100%;
             padding: 8px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        .form-group input:focus,
+        .form-group input:focus-visible {
+            outline: 2px solid #007BFF;
+            outline-offset: 2px;
+        }
         .form-group button {
+            box-sizing: border-box;
             display: block;
             width: 100%;
             padding: 10px;
@@ -51,6 +58,11 @@
         }
         .form-group button:hover {
             background-color: #0056b3;
+        }
+        .form-group button:focus,
+        .form-group button:focus-visible {
+            outline: 2px solid #0056b3;
+            outline-offset: 2px;
         }
         .error-message {
             color: red;
@@ -66,17 +78,17 @@
     <form action="login.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required autocomplete="username" placeholder="Enter your username">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
         </div>
         <div class="form-group">
             <button type="submit">Login</button>
         </div>
         <?php if (isset($_GET['error']) && $_GET['error'] === 'invalid'): ?>
-            <p class="error-message"></p>
+            <p class="error-message" role="alert">Invalid username or password.</p>
         <?php endif; ?>
     </form>
 </div>
