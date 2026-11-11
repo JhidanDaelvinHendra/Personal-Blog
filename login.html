@@ -76,7 +76,7 @@
             <button type="submit">Login</button>
         </div>
         <?php if (isset($_GET['error']) && $_GET['error'] === 'invalid'): ?>
-            <p class="error-message"></p>
+            <p class="error-message" role="alert">Invalid username or password. Please try again.</p>
         <?php endif; ?>
     </form>
 </div>
